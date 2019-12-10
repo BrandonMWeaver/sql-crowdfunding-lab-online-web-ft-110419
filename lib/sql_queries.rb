@@ -14,7 +14,7 @@ end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
   "SELECT projects.title, SUM(pledges.amount) - projects.funding_goal AS amount_over FROM projects
-   JOIN pledges ON projects.funding_goal < pledges.project_id
+   JOIN pledges ON projects.funding_goal < amount_over
    GROUP BY projects.id;"
 end
 
